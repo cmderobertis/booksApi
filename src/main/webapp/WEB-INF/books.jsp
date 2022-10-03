@@ -20,12 +20,25 @@
 <body>
   <h1 class="text-center">Check out these books!</h1>
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-auto">
       <div class="card">
         <div class="card-body">
-          <c:forEach var="book" items="books">
-            <p><c:out value="${book}"/></p>
-          </c:forEach>
+          <table class="table table-hover table-striped">
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Language</th>
+              <th># of Pages</th>
+            </tr>
+            <c:forEach var="book" items="${books}">
+              <tr>
+                <td><a href="/books/${book.getId()}"><c:out value="${book.getTitle()}"/></a></td>
+                <td><c:out value="${book.getDescription()}"/></td>
+                <td><c:out value="${book.getLanguage()}"/></td>
+                <td><c:out value="${book.getNumberOfPages()}"/></td>
+              </tr>
+            </c:forEach>
+          </table>
         </div>
       </div>
     </div>

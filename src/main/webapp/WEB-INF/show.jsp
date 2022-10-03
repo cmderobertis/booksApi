@@ -23,10 +23,10 @@
   <div class="col-auto">
     <div class="card">
       <div class="card-body">
-        <h3><c:out value="${book.title}"/></h3>
-        <p>Description: <c:out value="${book.description}"/></p>
-        <p>Language: <c:out value="${book.language}"/></p>
-        <p>Pages: <c:out value="${book.numberOfPages}"/></p>
+        <h3><c:out value="${book.getTitle()}"/></h3>
+        <p>Description: <c:out value="${book.getDescription()}"/></p>
+        <p>Language: <c:out value="${book.getLanguage()}"/></p>
+        <p>Pages: <c:out value="${book.getNumberOfPages()}"/></p>
       </div>
     </div>
   </div>

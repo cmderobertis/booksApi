@@ -22,7 +22,6 @@ public class MainController {
     String books(Model model) {
         List<Book> books = bookService.getAll();
         model.addAttribute("books", books);
-        System.out.println(books);
         return "books.jsp";
     }
 
