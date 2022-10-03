@@ -18,22 +18,15 @@
   <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <h1 class="text-center">Hello Spring!</h1>
+  <h1 class="text-center">Check out these books!</h1>
   <div class="row justify-content-center">
-    <div class="col-auto">
+    <div class="col-6">
       <div class="card">
-        <table class="table table-hover table-striped">
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-          <c:forEach var="fruit" items="${fruits}">
-            <tr>
-              <td><c:out value="${fruit.getName()}"/></td>
-              <td><c:out value="${fruit.getPrice()}"/></td>
-            </tr>
+        <div class="card-body">
+          <c:forEach var="book" items="books">
+            <p><c:out value="${book}"/></p>
           </c:forEach>
-        </table>
+        </div>
       </div>
     </div>
   </div>
