@@ -38,8 +38,6 @@ public class Book {
         this.language = lang;
         this.numberOfPages = pages;
     }
-
-    // other getters and setters removed for brevity
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();

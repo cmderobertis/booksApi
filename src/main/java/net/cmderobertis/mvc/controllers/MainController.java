@@ -1,5 +1,4 @@
 package net.cmderobertis.mvc.controllers;
-
 import net.cmderobertis.mvc.models.Book;
 import net.cmderobertis.mvc.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +49,25 @@ public class MainController {
             bookService.createBook(book);
             return "redirect:/books";
         }
+    }
+    @RequestMapping("/books/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Book book = bookService.getOne(id);
+        model.addAttribute("book", book);
+        return "edit.jsp";
+    }
+    @RequestMapping(value="/books/{id}", method=RequestMethod.PUT)
+    public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "edit.jsp";
+        } else {
+            bookService.updateBook(book);
+            return "redirect:/books";
+        }
+    }
+    @DeleteMapping("/books/{id}")
+    public String delete(@PathVariable("id") Long id) {
+        bookService.deleteBook(id);
+        return "redirect:/books";
     }
 }

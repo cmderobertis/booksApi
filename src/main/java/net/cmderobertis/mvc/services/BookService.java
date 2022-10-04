@@ -32,12 +32,12 @@ public class BookService {
         return optionalBook.orElse(null);
     }
 
-    public Book updateBook(Long id, String title, String description, String language, Integer numOfPages) {
-        Book b = getOne(id);
-        b.setTitle(title);
-        b.setDescription(description);
-        b.setLanguage(language);
-        b.setNumberOfPages(numOfPages);
+    public Book updateBook(Book book) {
+        Book b = getOne(book.getId());
+        b.setTitle(book.getTitle());
+        b.setDescription(book.getDescription());
+        b.setLanguage(book.getLanguage());
+        b.setNumberOfPages(book.getNumberOfPages());
         return bookRepository.save(b);
     }
 

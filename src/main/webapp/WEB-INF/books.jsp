@@ -29,13 +29,21 @@
               <th>Description</th>
               <th>Language</th>
               <th># of Pages</th>
+              <th>Actions</th>
             </tr>
             <c:forEach var="book" items="${books}">
               <tr>
-                <td><a href="/books/${book.getId()}"><c:out value="${book.getTitle()}"/></a></td>
-                <td><c:out value="${book.getDescription()}"/></td>
-                <td><c:out value="${book.getLanguage()}"/></td>
-                <td><c:out value="${book.getNumberOfPages()}"/></td>
+                <td><a href="/books/${book.id}"><c:out value="${book.title}"/></a></td>
+                <td><c:out value="${book.description}"/></td>
+                <td><c:out value="${book.language}"/></td>
+                <td><c:out value="${book.numberOfPages}"/></td>
+                <td>
+                  <a href="/books/${book.id}/edit">Edit</a>
+                  <form action="/books/${book.id}" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                  </form>
+                </td>
               </tr>
             </c:forEach>
           </table>
